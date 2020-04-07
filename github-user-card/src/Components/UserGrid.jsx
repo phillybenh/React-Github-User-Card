@@ -10,11 +10,13 @@ padding: 10%;
 display: grid;
 grid-template-columns: 1fr;
 grid-gap: 20px;
+justify-items: center;
 `
 const H2 = styled.h2`
     margin: 0;
     padding: 20px;
     font-size: 3rem;
+    justify-self: start;
 `;
 export default function UserGrid(props) {
 //   {

@@ -39,7 +39,7 @@ const H3 = styled.h3`
 `;
 const H4 = styled.h4`
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-style: italic;
 `;
 
