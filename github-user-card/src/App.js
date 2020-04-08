@@ -22,6 +22,15 @@ const H1 = styled.h1`
   padding: 1rem;
   margin: 0;
 `;
+const tok = 'phillybenh:bf80e4730eda69219205c406ba487f80e6f0eb29';
+const hash = btoa(tok);
+const Basic = 'Basic' + hash;
+var config = {
+  headers: {
+    'Authorization': Basic
+  }
+}
+// bf80e4730eda69219205c406ba487f80e6f0eb29
 
 
 class App extends React.Component {
@@ -35,16 +44,16 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get("https://api.github.com/users/phillybenh")
+      .get("https://api.github.com/users/phillybenh", config)
       .then((response) => {
         // console.log("Axios Data: ", response.data);
         this.setState({
           githubData: response.data,
         });
-        axios.get(response.data.followers_url).then((response) => {
+        axios.get(response.data.followers_url, config).then((response) => {
           // console.log("Follower Data: ", response.data);
           response.data.forEach((user) => {
-            axios.get(user.url).then((response) => {
+            axios.get(user.url, config).then((response) => {
               console.log("Follower Data: ", response.data);
               this.setState({
                 followerData: [...this.state.followerData, response.data]
@@ -59,6 +68,7 @@ class App extends React.Component {
   }
 
   render() {
+
     return (
       <div className="App">
 

@@ -31,6 +31,7 @@ const Graph = styled.img`
     grid-row: 2 / span 1;
     grid-column: 1 / -1;
     justify-self: center;
+    max-width: 100%;
 `;
 
 const H3 = styled.h3`
@@ -39,15 +40,16 @@ const H3 = styled.h3`
 `;
 const H4 = styled.h4`
   margin: 0;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-style: italic;
 `;
 
 export default function UserCard(props) {
-  {
-    console.log("Card Data", props.data);
-  }
+  
+    // console.log("Card Data", props.data);
+  
   const chartURL = `http://ghchart.rshah.org/${props.data.login}`;
+
 
   return (
     <CardContainer>
